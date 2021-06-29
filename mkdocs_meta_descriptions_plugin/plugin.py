@@ -25,7 +25,7 @@ class MetaDescription(BasePlugin):
         first_paragraph = BeautifulSoup(html, "html.parser").select_one("p")
         if first_paragraph is not None:
             # Found the first paragraph, return stripped and escaped text
-            return escape(first_paragraph.get_text().strip())
+            return "test"# escape(first_paragraph.get_text().strip())
         else:
             # Didn't find the first paragraph
             return ""

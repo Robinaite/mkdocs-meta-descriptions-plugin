@@ -1,6 +1,6 @@
 from setuptools import setup
 
-file = open("README.md", "r")
+file = open("README.md", "r",encoding="utf8")
 LONG_DESCRIPTION = file.read()
 file.close()
 
@@ -17,7 +17,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     keywords="mkdocs meta description seo paragraph",
-    url="https://github.com/prcr/mkdocs-meta-descriptions-plugin",
+    url="https://github.com/Robinaite/mkdocs-meta-descriptions-plugin",
     author="Paulo Ribeiro",
     author_email="paulo@diffraction.pt",
     license="MIT",

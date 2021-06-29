@@ -1,3 +1,5 @@
+Changed the way how the first paragraph is obtained. 
+
 # mkdocs-meta-descriptions-plugin
 
 [![CI/CD](https://github.com/prcr/mkdocs-meta-descriptions-plugin/actions/workflows/test-build-deploy.yml/badge.svg?branch=main)](https://github.com/prcr/mkdocs-meta-descriptions-plugin/actions/workflows/build-deploy.yml)

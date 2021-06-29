@@ -15,7 +15,7 @@ class MetaDescription(BasePlugin):
     )
 
     def __init__(self):
-        self._headings_pattern = re.compile("<h2 id=\"short-answer\">Short Answer</h2>", flags=re.IGNORECASE)
+        self._headings_pattern = re.compile("<h2 id=\".*\">.*</h2>", flags=re.IGNORECASE)
         self._pages = []
 
     def _get_first_paragraph_text(self, html):

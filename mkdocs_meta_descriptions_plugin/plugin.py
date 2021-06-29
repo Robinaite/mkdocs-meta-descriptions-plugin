@@ -15,20 +15,25 @@ class MetaDescription(BasePlugin):
     )
 
     def __init__(self):
-        self._headings_pattern = re.compile("<h[2-6]", flags=re.IGNORECASE)
+        self._headings_pattern = re.compile("<h[2]", flags=re.IGNORECASE)
         self._pages = []
 
     def _get_first_paragraph_text(self, html):
         # Strip page subsections to improve performance
-        html = re.split(self._headings_pattern, html, maxsplit=1)[0]
+        try:
+            html = re.split(self._headings_pattern, html)[1]
+        except IndexError:
+            html = 'test'
+
+        html = "<h[2]" + html
         # Select first paragraph directly under body
-        first_paragraph = BeautifulSoup(html, "html.parser").select_one("p")
+        first_paragraph = BeautifulSoup(html, "html.parser")#.select_one("p")
         if first_paragraph is not None:
             # Found the first paragraph, return stripped and escaped text
-            return "test"# escape(first_paragraph.get_text().strip())
+            return escape(first_paragraph.get_text().strip())
         else:
             # Didn't find the first paragraph
-            return ""
+            return escape(first_paragraph.get_text().strip())
 
     def on_page_content(self, html, page, config, files):
         if page.meta.get("description", None):
